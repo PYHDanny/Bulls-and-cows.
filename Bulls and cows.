@@ -1,0 +1,67 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int main(){
+	int a,b;
+	int n,y;
+	char w;
+	srand((unsigned)time(0));
+	a=rand()%100+1;
+	
+	cout<<"Please select a difficulty 1. Difficulty 2. Simplicity 3. Randomness\n";
+	cin>>n;
+	switch(n){
+		case 1:y=4;
+		break;
+		case 2:y=6;
+		break;
+		case 3:y=rand()%7+2;
+		break;
+	}
+	
+	
+	while(1){
+	if(y==0){
+		cout<<"Game over, the answer is"<<a<<endl;
+		cout<<"If you want to play it again, type in y if you want, and don't want to press any key to exit\n";
+		getchar();
+		cin>>w;
+		if(w=='y'){
+			a=rand()%100+1;
+			y=8; 
+		}else{
+			break;
+		}
+	}
+	
+	
+	cout<<"Please enter a number between one and one hundred life:";
+	for(int i=1;i<=y;i++){
+		cout<<"# ";
+	}
+	cout<<endl;
+	cin>>b; 
+	y--;
+	
+	if(a>b){
+		if(a-b<10){
+			cout<<"A little bit small\n";
+		}else{
+			cout<<"Too small\n";
+		}
+	}
+	if(a<b){
+		if(b-a<10){
+			cout<<"A little bit big\n";
+		}else{
+			cout<<"Too big\n";
+		}
+	}
+	if(a==b){
+		cout<<"Congratulations, you guessed it！\n"; 
+		break;
+	}
+	}
+	return 0;
+}
